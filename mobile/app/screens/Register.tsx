@@ -86,7 +86,7 @@ export default function Register({ navigation }: Props) {
       onPress={handleRegister}
       disabled = {loading}      
 >
-        <Text style={globalStyles.buttonText}>{loading ? 'Cadastrar':'Cadastrando'}</Text>
+        <Text style={globalStyles.buttonText}>{loading ? 'Cadastrando':'Cadastrar'}</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.goBack()}>
