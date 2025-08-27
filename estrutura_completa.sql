@@ -20,6 +20,9 @@ SET row_security = off;
 -- Name: public; Type: SCHEMA; Schema: -; Owner: pg_database_owner
 --
 
+--CREATE SCHEMA public;
+
+
 ALTER SCHEMA public OWNER TO pg_database_owner;
 
 --
@@ -696,9 +699,7 @@ ALTER TABLE ONLY public.profissional
 ALTER TABLE ONLY public.servicos
     ADD CONSTRAINT servicos_id_estabelecimento_fkey FOREIGN KEY (id_estabelecimento) REFERENCES public.estabelecimento(id) ON DELETE CASCADE;
 
-ALTER TABLE agendamentos
-ALTER COLUMN servicos TYPE JSONB
-USING servicos::jsonb;
+
 --
 -- PostgreSQL database dump complete
 --
