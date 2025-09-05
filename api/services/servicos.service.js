@@ -71,8 +71,9 @@ async function deleteService({ id_estabelecimento, id_servico }) {
 }
 module.exports = {
     newServico,
+    getServices,
+    getPublicServices,
     updateImagemServico,
     updateServicoStatus,
-    getServices,
     deleteService
 };

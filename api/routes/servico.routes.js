@@ -30,7 +30,9 @@ router.get(
 */
 
 router.get(
-  "/list/:id_estabelecimento",
+  "/list",
+  verifyToken,
+  verificarEstabelecimento,
   servicoController.listar
 );
 
