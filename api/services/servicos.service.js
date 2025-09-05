@@ -22,6 +22,9 @@ async function getServices({id_estabelecimento}) {
     return rows;
 }
 
+
+
+
 async function updateImagemServico({ id, id_estabelecimento, imagem_url }) {
     const query = `
         UPDATE servicos
@@ -33,6 +36,27 @@ async function updateImagemServico({ id, id_estabelecimento, imagem_url }) {
     const { rows } = await db.query(query, values);
     return rows[0]; // retorna o serviço atualizado
 }
+
+async function updateServicoStatus({ id, status }) {
+  const query = `UPDATE servicos 
+                 SET status = $1 
+                 WHERE id = $2 
+                 RETURNING *;`;
+  const values = [status, id];
+  const { rows } = await db.query(query, values);
+  return rows[0]; // retorna o registro atualizado
+}
+
+async function getPublicServices({ id_estabelecimento }) {
+  const query = `SELECT * FROM servicos 
+                 WHERE id_estabelecimento = $1 
+                   AND status = true;`;
+  const values = [id_estabelecimento];
+  const { rows } = await db.query(query, values);
+  return rows;
+}
+
+
 
 async function deleteService({ id_estabelecimento, id_servico }) {
     const query = `
@@ -48,6 +72,7 @@ async function deleteService({ id_estabelecimento, id_servico }) {
 module.exports = {
     newServico,
     updateImagemServico,
+    updateServicoStatus,
     getServices,
     deleteService
 };
