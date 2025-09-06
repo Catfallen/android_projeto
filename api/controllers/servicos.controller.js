@@ -46,7 +46,10 @@ async function listar(req, res) {
 
 async function atualizarStatus(req,res) {
     try{
-        const id_estabelecimento = req.params.id_estabelecimento;
+        const id = req.id;
+        const status = req.body.status;
+        const result = await servicoService.updateServicoStatus({id,status});
+        return res.status(200).json(result);
     }catch(err){
         res.status(500).json({ error: err.message });
     }
@@ -114,5 +117,6 @@ module.exports = {
     criar,
     listar,
     deletar,
-    atualizarImagem
+    atualizarImagem,
+    atualizarStatus
 };

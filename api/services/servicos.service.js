@@ -37,7 +37,7 @@ async function updateImagemServico({ id, id_estabelecimento, imagem_url }) {
     return rows[0]; // retorna o serviço atualizado
 }
 
-async function updateServicoStatus({ id, status }) {
+async function updateServicoStatus({id,status}) {
   const query = `UPDATE servicos 
                  SET status = $1 
                  WHERE id = $2 
