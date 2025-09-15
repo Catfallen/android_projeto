@@ -1,0 +1,12 @@
+1. login body(email,senha) ok
+
+2. listar estabelecimentos body(id_estabelecimento) ok
+
+3. Criar servico body({
+    "nome":"corte",
+    "valor":"10.0",
+    "tempo":20,
+    "id_estabelecimento":3
+}) ok
+
+4. Atualizar status body(id_estabelecimento,status)
