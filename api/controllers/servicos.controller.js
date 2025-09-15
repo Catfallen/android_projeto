@@ -35,7 +35,7 @@ async function criar(req, res) {
 
 async function listar(req, res) {
     try {
-        const id_estabelecimento = req.params.id_estabelecimento;
+        const id_estabelecimento = req.idEstabelecimento;
         console.log(`Req.idEstabelecimento: ${id_estabelecimento}`);
         const lista = await servicoService.getServices({id_estabelecimento});
         res.json(lista);
@@ -43,6 +43,18 @@ async function listar(req, res) {
         res.status(500).json({ error: err.message });
     }
 }
+
+async function atualizarStatus(req,res) {
+    try{
+        const id = req.id;
+        const status = req.body.status;
+        const result = await servicoService.updateServicoStatus({id,status});
+        return res.status(200).json(result);
+    }catch(err){
+        res.status(500).json({ error: err.message });
+    }
+}
+
 
 //const servicoService = require("../services/servicos.service");
 async function atualizarImagem(req, res) {
@@ -105,5 +117,6 @@ module.exports = {
     criar,
     listar,
     deletar,
-    atualizarImagem
+    atualizarImagem,
+    atualizarStatus
 };

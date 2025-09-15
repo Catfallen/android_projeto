@@ -5,6 +5,7 @@ const servicoController = require("../controllers/servicos.controller");
 const verifyToken = require("../utils/verifyToken");
 const verificarEstabelecimento = require("../utils/verificarEstabelecimento");
 const verifyByParams = require('../utils/verifyByParams');
+const getIdAdminByIdServico = require('../utils/servico_id_admin');
 // Rota para criar um serviço
 const multer = require('multer');
 const upload = multer();
@@ -30,7 +31,9 @@ router.get(
 */
 
 router.get(
-  "/list/:id_estabelecimento",
+  "/list",
+  verifyToken,
+  verificarEstabelecimento,
   servicoController.listar
 );
 
@@ -42,6 +45,13 @@ router.put(
     verifyByParams,
     servicoController.atualizarImagem
 );
+
+router.put(
+  '/update/status',
+  verifyToken,
+  getIdAdminByIdServico,
+  servicoController.atualizarStatus
+)
 
 router.delete(
     "/:id_estabelecimento/:id_servico",
