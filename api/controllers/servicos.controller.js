@@ -49,6 +49,7 @@ async function atualizarStatus(req,res) {
         const id = req.id;
         const status = req.body.status;
         const result = await servicoService.updateServicoStatus({id,status});
+        console.log(result.status);
         return res.status(200).json(result);
     }catch(err){
         res.status(500).json({ error: err.message });

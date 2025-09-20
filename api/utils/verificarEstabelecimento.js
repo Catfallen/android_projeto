@@ -4,7 +4,10 @@ async function verificarEstabelecimento(req, res, next) {
     try {
         console.log("Middleware: verificarEstabelecimento");
 
-        const id_estabelecimento = req.body.id_estabelecimento;
+        const id_estabelecimento =
+            req.body.id_estabelecimento ||
+            req.query.id_estabelecimento ||
+            req.params.id_estabelecimento;
         const adminId = req.adminId;
         console.log(`verify estabelecimento: ${id_estabelecimento}`);
         if (!id_estabelecimento) {
