@@ -95,3 +95,4 @@ npx expo start
 - Será gerado um **QR Code**.  
 - Qualquer atualização feita no diretório `app` será refletida automaticamente no dispositivo externo.  
 - Para visualizar o projeto em um dispositivo móvel, é necessário instalar o aplicativo **Expo Go** no **Android** ou **iOS** e realizar a leitura do QR Code gerado.
+> Obs.: Possível erro de versão do sdk. No arquivo mobile/app/package.json altere para a versão que o aplicativo 'expo go' está pedindo
