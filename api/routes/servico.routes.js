@@ -30,7 +30,7 @@ router.get(
 );
 */
 
-router.get(
+router.post(
   "/list",
   verifyToken,
   verificarEstabelecimento,
