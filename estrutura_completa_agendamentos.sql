@@ -4,6 +4,12 @@
 
 -- Dumped from database version 15.5 (Ubuntu 15.5-0ubuntu0.23.04.1)
 -- Dumped by pg_dump version 15.5 (Ubuntu 15.5-0ubuntu0.23.04.1)
+-- Garante que o schema public existe
+CREATE SCHEMA IF NOT EXISTS public;
+
+-- Define o schema public como padrão
+SET search_path TO public;
+
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
